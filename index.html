@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Pakar — Deteksi Kerusakan Komputer</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="header-eyebrow">
+      <span class="badge-tag">Sistem Pakar</span>
+      <span class="badge-rules">17 Rules</span>
+    </div>
+    <h1>Deteksi <span>Kerusakan</span><br>Komputer</h1>
+    <p class="header-desc">Pilih gejala yang Anda amati. Sistem akan mencocokkan aturan secara otomatis dan menampilkan jenis kerusakan yang terdeteksi.</p>
+  </header>
+
+  <div class="layout">
+
+    <!-- LEFT: Symptoms -->
+    <div class="left-col">
+      <div class="section-label">
+        <span>Daftar Gejala</span>
+        <span class="count-chip" id="countChip">0 dipilih</span>
+      </div>
+      <div class="symptom-list" id="symptomList"></div>
+
+      <!-- Knowledge base toggle -->
+      <div class="kb-toggle">
+        <button class="kb-toggle-btn" id="kbToggleBtn" onclick="toggleKB()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Lihat Tabel Aturan (Rules)
+        </button>
+        <div class="kb-table-wrap" id="kbTable">
+          <table class="kb-table">
+            <thead>
+              <tr>
+                <th>Rule</th>
+                <th>Kondisi (IF)</th>
+                <th>Kesimpulan (THEN)</th>
+              </tr>
+            </thead>
+            <tbody id="ruleTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div class="result-panel">
+
+      <div class="result-box">
+        <div class="result-header">
+          <div class="status-indicator" id="statusIndicator"></div>
+          <span id="statusLabel">Menunggu Input</span>
+        </div>
+        <div class="result-body" id="resultBody">
+          <div class="empty-state">
+            <div class="empty-icon">🖥️</div>
+            <div class="empty-text">Centang gejala yang terdeteksi untuk memulai diagnosis.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rules-matched" id="rulesMatched" style="display:none">
+        <div class="rules-matched-label">Rule yang cocok</div>
+        <div class="rules-list" id="rulesList"></div>
+      </div>
+
+      <button class="btn-reset" id="btnReset" onclick="resetAll()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7a5 5 0 1 0 1.5-3.5L2 2v3h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Reset Semua
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
